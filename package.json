@@ -6,6 +6,7 @@
   "devDependencies": {
     "chalk": "^5.0.1",
     "commander": "^9.1.0",
+    "download-git-repo": "^3.0.2",
     "figlet": "^1.5.2",
     "inquirer": "^8.2.2",
     "ora": "^6.1.0"
