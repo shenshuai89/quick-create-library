@@ -1,0 +1,35 @@
+name: pub_patch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: install node
+        uses: actions/setup-node@v3.0.0
+        with:
+          node-version: "14.x"
+          registry-url: https://registry.npmjs.org
+      - name: install deps
+        run: npm install
+      - name: prepublish
+        run: npm run prepublish
+      - name: publish patch
+        # run可以创建多个任务命令，用 | 做标识。
+        # 完成git登录
+        # 完成npmjs验证
+        # 完成patch补丁发布
+        # 将最新代码推送到仓库
+        # env是用于设置变量，这些变量可以在仓库的setting中设置，避免一些明文数据泄露
+        run: |
+          git config --global user.name 'shenshuai89'
+          git config --global user.email 'shenshuai89@qq.com'
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npm run pub:patch
+          git push -f
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
