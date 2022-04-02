@@ -7,6 +7,14 @@
     "quick-create-library": "./bin/index.js",
     "qcli": "./bin/index.js"
   },
+  "scripts": {
+    "major": "npm version major -m 'build: update major'",
+    "minor": "npm version minor -m 'build: update minor'",
+    "patch": "npm version patch -m 'build: update patch'",
+    "pub:major": "npm run major && npm publish --access=public",
+    "pub:minor": "npm run minor && npm publish --access=public",
+    "pub:patch": "npm run patch && npm publish --access=public"
+  },
   "dependencies": {
     "chalk": "4.0.0",
     "commander": "^9.1.0",
