@@ -1,14 +1,20 @@
 {
-  "name": "quick-cli",
+  "name": "quick-create-library",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "bin":{
+    "quick-create-library": "./bin/index.js",
+    "qcli": "./bin/index.js"
+  },
   "devDependencies": {
-    "chalk": "^5.0.1",
+    "chalk": "4.0.0",
     "commander": "^9.1.0",
-    "download-git-repo": "^3.0.2",
+    "download-git-repo": "2.0.0",
     "figlet": "^1.5.2",
+    "git-clone": "^0.2.0",
     "inquirer": "^8.2.2",
-    "ora": "^6.1.0"
+    "ora": "5.2.0",
+    "shelljs": "^0.8.5"
   }
 }
