@@ -6,8 +6,9 @@ const chalk = require("chalk");
 const log = (content) => console.log(chalk.yellow(content));
 const inquirer = require("inquirer");
 const init = require("./init");
+const { version } = require("../package.json");
 
-program.version("1.0.0");
+program.version(version);
 
 program.option("-n --name <type>", "set project name");
 async function printLogo() {
