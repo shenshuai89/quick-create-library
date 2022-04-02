@@ -1,13 +1,13 @@
 {
   "name": "quick-create-library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
-  "bin":{
+  "bin": {
     "quick-create-library": "./bin/index.js",
     "qcli": "./bin/index.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "chalk": "4.0.0",
     "commander": "^9.1.0",
     "download-git-repo": "2.0.0",
