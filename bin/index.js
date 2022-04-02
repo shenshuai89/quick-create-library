@@ -11,8 +11,8 @@ const { version } = require("../package.json");
 program.version(version);
 
 program.option("-n --name <type>", "set project name");
-async function printLogo() {
-  let data = await asyncFiglet("quick-cli");
+async function printLogo(name) {
+  let data = await asyncFiglet(name);
   console.log(data);
 }
 
@@ -20,7 +20,7 @@ program
   .command("create <app-name>")
   .description("Create a project")
   .action(async (name) => {
-    await printLogo();
+    await printLogo(name);
     log("准备创建项目");
     let answer = await inquirer.prompt([
       {
