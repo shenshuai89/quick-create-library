@@ -1,7 +1,6 @@
 const { promisify } = require("util");
 const ora = require("ora");
 const download = promisify(require("download-git-repo"));
-const clone = require("git-clone/promise");
 const shell = require("shelljs");
 const chalk = require("chalk");
 const log = (content) => console.log(chalk.yellow(content));
