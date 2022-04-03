@@ -33,10 +33,10 @@ program
       },
     ]);
     if (answer.language) {
-      log("javascript: ");
+      log("javascript project");
       init(name, options);
     } else {
-      log("typescript: ");
+      log("typescript project TODO::");
     }
   });
 
