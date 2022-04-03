@@ -19,7 +19,9 @@ async function printLogo(name) {
 program
   .command("create <app-name>")
   .description("Create a project")
-  .action(async (name) => {
+  // 配置force参数，如果新建的项目已经存在，是否进行覆盖，或者取消创建操作
+  .option('-f,--force', 'overwrite target directory if it exists')
+  .action(async (name, options) => {
     await printLogo(name);
     log("准备创建项目");
     let answer = await inquirer.prompt([
@@ -32,7 +34,7 @@ program
     ]);
     if (answer.language) {
       log("javascript: ");
-      init(name);
+      init(name, options);
     } else {
       log("typescript: ");
     }
