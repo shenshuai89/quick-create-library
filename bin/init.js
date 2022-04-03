@@ -53,18 +53,31 @@ module.exports = async (name, options) => {
     );
     spinner.succeed("🚀🚀🚀 download success!");
     /* 动态设置模版信息 */
-    const pkgPath = path.resolve(targetPath, "pkg.json");
     const packagePath = path.join(targetPath, "package.json");
     // 设置examples中的文件引入
     const exampleIndexPath = path.join(targetPath, "examples/index.html");
     const exampleNodePath = path.join(targetPath, "examples/useNodeTest.js");
-    let pkgData;
-    if (fs.existsSync(pkgPath)) {
-      const pkg = fs.readFileSync(pkgPath).toString();
-      //这里会询问pkg.json里面的那些问题，并将用户的交互内容返回
-      pkgData = await inquirer.prompt(JSON.parse(pkg));
-    }
-    console.log({ projectName: name, ...pkgData });
+    let pkgData = await inquirer.prompt([
+      {
+        type: "input",
+        name: "author",
+        message: "author?",
+        default: "",
+      },
+      {
+        type: "input",
+        name: "description",
+        message: "description?",
+        default: "create npmjs package.",
+      },
+      {
+        type: "list",
+        name: "license",
+        message: "license?",
+        choices: ["MIT", "GPL", "BSD", "Mozilla", "Apache", "LGPL"],
+        default: "MIT",
+      },
+    ]);
     if (fs.existsSync(packagePath)) {
       const content = fs.readFileSync(packagePath).toString();
       //编译package.json文件
@@ -91,7 +104,6 @@ yarn or npm install
 yarn run dev   
     `);
     // 删除pkg.json文件
-    fs.unlinkSync(pkgPath);
   } catch (error) {
     console.error(error);
     log("⚡️⚡️⚡️ download failed");
