@@ -7,6 +7,16 @@
     "quick-create-library": "./bin/index.js",
     "qcli": "./bin/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shenshuai89/quick-create-library.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shenshuai89/quick-create-library/issues"
+  },
+  "homepage": "https://github.com/shenshuai89/quick-create-library#readme",
+  "keywords": ["cli", "packages"],
+  "author": "shenshuai89",
   "scripts": {
     "major": "npm version major -m 'build: update major'",
     "minor": "npm version minor -m 'build: update minor'",
