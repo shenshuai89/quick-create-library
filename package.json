@@ -1,6 +1,6 @@
 {
   "name": "quick-create-library",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "index.js",
   "license": "MIT",
   "bin": {
@@ -15,7 +15,10 @@
     "url": "https://github.com/shenshuai89/quick-create-library/issues"
   },
   "homepage": "https://github.com/shenshuai89/quick-create-library#readme",
-  "keywords": ["cli", "packages"],
+  "keywords": [
+    "cli",
+    "packages"
+  ],
   "author": "shenshuai89",
   "scripts": {
     "major": "npm version major -m 'build: update major'",
